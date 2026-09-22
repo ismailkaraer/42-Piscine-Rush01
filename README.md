@@ -10,3 +10,9 @@ The program takes 16 visibility clues corresponding to the 4 sides of the grid (
 Compile the source files using:
 
 gcc -Wall -Wextra -Werror *.c -o rush-01
+
+## Contributors
+This project was developed collaboratively during the 42 Istanbul Piscine by:
+* [İsmail Karaer](https://github.com/ismailkaraer)
+* [Müslüme Bakım](https://github.com/bakimuslume)
+* Muhammet Resul Doğan

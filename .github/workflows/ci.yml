@@ -1,0 +1,28 @@
+name: Build and test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+
+      - name: Compile the solver
+        run: cc -Wall -Wextra -Werror ex00/*.c -o rush-01
+
+      - name: Check a solvable puzzle and malformed input
+        shell: bash
+        run: |
+          printf '%s\n' '1 2 3 4' '2 3 4 1' '3 4 1 2' '4 1 2 3' > expected.txt
+          ./rush-01 '4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2' > actual.txt
+          diff -u expected.txt actual.txt
+          test "$(./rush-01 '1 2')" = 'Error'

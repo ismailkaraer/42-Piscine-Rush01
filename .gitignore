@@ -1,0 +1,8 @@
+# Local C build artifacts
+/rush-01
+*.o
+*.out
+*.dSYM/
+
+# macOS metadata
+.DS_Store
